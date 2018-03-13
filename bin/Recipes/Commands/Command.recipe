@@ -1,7 +1,9 @@
 <?php
 
-namespace Console\Commands;
+namespace App\Commands;
 
+
+use Console\BaseCommand;
 use Console\Contracts\ConsoleContract;
 
 class %{ClassName}% extends BaseCommand implements ConsoleContract

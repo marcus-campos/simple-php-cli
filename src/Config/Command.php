@@ -9,10 +9,18 @@ namespace App\Config;
 
 
 use App\Commands\Help;
+use App\Commands\Command as ConsoleCommand;
 
 class Command
 {
     private $commands = [
+        'make:command' => [
+            'action' => ConsoleCommand::class.'@makeCommand',
+            'params' => [
+                'nome_comando'
+            ],
+            'description' => 'Cria um novo comando para ser executado pelo console: Ex: make:command RunAllTests'
+        ],
         'help' => [
             'action' => Help::class.'@help',
             'description' => 'Lista de comandos'
