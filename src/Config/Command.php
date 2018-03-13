@@ -8,8 +8,8 @@
 namespace App\Config;
 
 
-use App\Commands\Help;
-use App\Commands\Command as ConsoleCommand;
+use App\Commands\Core\Help;
+use App\Commands\Core\Command as ConsoleCommand;
 
 class Command
 {

@@ -5,7 +5,7 @@
  * Time: 07:56
  */
 
-namespace App\Commands;
+namespace App\Commands\Core;
 
 
 use Console\BaseCommand;

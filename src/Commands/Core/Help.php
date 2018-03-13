@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Commands;
+namespace App\Commands\Core;
 
 use Console\BaseCommand;
 use App\Config\Command;
