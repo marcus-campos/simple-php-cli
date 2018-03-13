@@ -1,0 +1,10 @@
+<?php
+
+namespace Console\Commands;
+
+use Console\Contracts\ConsoleContract;
+
+class %{ClassName}% extends BaseCommand implements ConsoleContract
+{
+
+}

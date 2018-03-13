@@ -1,0 +1,22 @@
+{
+    "name": "marcus-campos/simple-php-cli",
+    "description": "Very simple PHP CLI for school projects.",
+    "keywords": ["php", "cli", "simple"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marcus Vinícius Campos",
+            "email": "campos.v.marcus@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0"
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Console\\": "bin/",
+            "App\\": "src/"
+        }
+    }
+}
