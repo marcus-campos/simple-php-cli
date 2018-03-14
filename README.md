@@ -1,3 +1,11 @@
+# How use?
+
+To create a project, open your terminal and run the following command: 
+
+```bash 
+composer create-project marcus-campos/simple-php-cli MyCliAppName
+```
+
 # Build commands
 
 To build commands just run `php run make: command <command_name>`.
