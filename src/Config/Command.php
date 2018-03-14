@@ -8,23 +8,16 @@
 namespace App\Config;
 
 
-use App\Commands\Core\Help;
-use App\Commands\Core\Command as ConsoleCommand;
+use App\Commands\HelloWorld;
 
 class Command
 {
     private $commands = [
-        'make:command' => [
-            'action' => ConsoleCommand::class.'@makeCommand',
-            'params' => [
-                'nome_comando'
-            ],
-            'description' => 'Cria um novo comando para ser executado pelo console: Ex: make:command RunAllTests'
-        ],
-        'help' => [
-            'action' => Help::class.'@help',
-            'description' => 'Lista de comandos'
-        ],
+        'hello:world' => [
+            'action' => HelloWorld::class.'@execute',
+            'params' => [],
+            'description' => 'Hello world!!!'
+        ]
     ];
 
     /**

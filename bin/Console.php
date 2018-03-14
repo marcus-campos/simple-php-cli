@@ -3,6 +3,7 @@
 namespace Console;
 
 use App\Config\Command;
+use Console\Config\Command as CoreCommand;
 use Console\Util\Util;
 
 class Console
@@ -12,8 +13,14 @@ class Console
      */
     private $util;
 
+    /**
+     * @var $argv
+     */
     private $argv;
 
+    /**
+     * @var $commands
+     */
     private $commands;
 
     /**
@@ -24,8 +31,9 @@ class Console
     public function __construct($argv)
     {
         $commands = new Command();
+        $coreCommands = new CoreCommand();
         $this->util = new Util($argv);
-        $this->commands = $commands->getCommands();
+        $this->commands = array_merge($coreCommands->getCommands(), $commands->getCommands());
         $this->argv = $argv;
     }
 

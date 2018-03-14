@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Commands\Core;
+namespace Console\Commands;
 
 use Console\BaseCommand;
 use App\Config\Command;
+use Console\Config\Command as CoreCommand;
 use Console\Contracts\ConsoleContract;
 
 class Help extends BaseCommand implements ConsoleContract
@@ -19,7 +20,8 @@ class Help extends BaseCommand implements ConsoleContract
     public function __construct($argv)
     {
         $commands = new Command();
-        $this->commands = $commands->getCommands();
+        $coreCommands = new CoreCommand();
+        $this->commands = array_merge($commands->getCommands(), $coreCommands->getCommands());
         parent::__construct($argv);
     }
 
