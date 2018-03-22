@@ -29,7 +29,7 @@ class Util
     }
 
     /**
-     * @return array
+     * @return $this
      */
     public function args()
     {
