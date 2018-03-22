@@ -10,14 +10,15 @@ namespace Console\Util\Args;
 
 class Args
 {
+
+    private $ret;
     /**
      * @param $args
-     * @return array
+     * @return $this
      */
-    function arguments($args)
+    public function arguments($args)
     {
         array_shift($args);
-        $endofoptions = false;
 
         $ret = [
             'commands' => [],
@@ -63,6 +64,89 @@ class Args
             $ret['arguments'][] = $arg;
         }
 
-        return $ret;
+        $this->ret = $ret;
+
+        return $this;
+    }
+
+    /**
+     * @param $name
+     * @return int|null|string
+     */
+    public function getCommand ($name)
+    {
+        foreach($this->ret['commands'] as $key => $value) {
+            if($key == $name) {
+                return $value ? $value : $key;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCommands ()
+    {
+        return $this->ret['commands'];
+    }
+
+    /**
+     * @param $name
+     * @return int|null|string
+     */
+    public function getOption ($name)
+    {
+        foreach($this->ret['options'] as $key => $value) {
+            if($key == $name) {
+                return $value ? $value : $key;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getOptions ()
+    {
+        return $this->ret['options'];
+    }
+
+    /**
+     * @param $name
+     * @return int|null|string
+     */
+    public function getFlag ($name)
+    {
+        foreach($this->ret['flags'] as $key => $value) {
+            if($key === $name) {
+                return $value;
+            }
+
+            if($value === $name) {
+                return $value;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFlags ()
+    {
+        return $this->ret['flags'];
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getArguments ()
+    {
+        return $this->ret['arguments'];
     }
 }
