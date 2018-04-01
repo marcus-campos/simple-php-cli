@@ -10,7 +10,6 @@ namespace Console\Util\Args;
 
 class Args
 {
-
     private $ret;
     /**
      * @param $args

@@ -13,14 +13,8 @@ class Console
      */
     private $util;
 
-    /**
-     * @var $argv
-     */
     private $argv;
 
-    /**
-     * @var $commands
-     */
     private $commands;
 
     /**
@@ -28,22 +22,21 @@ class Console
      *
      * @param $argv
      */
-    public function __construct($argv)
+    public function __construct ($argv)
     {
         $commands = new Command();
-        $coreCommands = new CoreCommand();
         $this->util = new Util($argv);
-        $this->commands = array_merge($coreCommands->getCommands(), $commands->getCommands());
+        $this->commands = $commands->getCommands();
         $this->argv = $argv;
     }
 
     /**
      *
      */
-    public function command()
+    public function command ()
     {
         $execCommand = false;
-        $command = $this->util->args()['commands'];
+        $command = $this->util->args()->getCommands();
 
         foreach ($this->commands as $key => $value) {
             if ($command == $key) {

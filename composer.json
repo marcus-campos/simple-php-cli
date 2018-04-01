@@ -15,8 +15,8 @@
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
-            "Console\\": "bin/",
-            "App\\": "src/"
+            "Console\\": "src/",
+            "App\\": "app/"
         }
     }
 }

@@ -5,26 +5,26 @@
  * Time: 08:25
  */
 
-namespace Console\Config;
+namespace App\Config;
 
+
+use App\Commands\HelloWorld;
 use Console\Commands\Help;
-use Console\Commands\Command as ConsoleCommand;
 
 class Command
 {
-    private $commands =  [
-        'make:command' => [
-            'action' => ConsoleCommand::class.'@makeCommand',
-            'params' => [
-                'nome_comando'
-            ],
-            'description' => 'Cria um novo comando para ser executado pelo console: Ex: make:command RunAllTests'
+    private $commands = [
+        'hello:world' => [
+            'action' => HelloWorld::class.'@execute',
+            'params' => [],
+            'description' => 'Hello world!!!'
         ],
         'help' => [
             'action' => Help::class.'@help',
             'description' => 'Lista de comandos'
         ]
     ];
+
     /**
      * @return array
      */
