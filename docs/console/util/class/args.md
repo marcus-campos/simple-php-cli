@@ -17,18 +17,24 @@ Returns an array containing what was passed via parameters during execution of a
 ...
 public function execute ()
 {
-    $ args = $this->util->args()->arguments();
+    $ args = $this->util->args()->getCommands();
 }
 ...
 ```
 
-Values ​​received by `$args` variable:
+Functions:
 
 ```php
-        [
-            'commands' => [...],
-            'options' => [...],
-            'flags' => [...],
-            'arguments' => [...],
-        ]
+       ...
+            $this->util->args()->getCommand('command name'); //Return one command
+            $this->util->args()->getCommands(); //Return all commands
+            
+            $this->util->args()->getOption('Option name'); //Return one option
+            $this->util->args()->getOptions(); //Return all options
+            
+            $this->util->args()->getFlag('flag name'); //Return one flag
+            $this->util->args()->getFlags(); //Return all flags 
+            
+            $this->util->args()->getArguments(); //Return all arguments 
+       ...
 ```
