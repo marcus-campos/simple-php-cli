@@ -25,8 +25,9 @@ class Console
     public function __construct ($argv)
     {
         $commands = new Command();
+        $coreCommands = new CoreCommand();
         $this->util = new Util($argv);
-        $this->commands = $commands->getCommands();
+        $this->commands = array_merge($coreCommands->getCommands(), $commands->getCommands());
         $this->argv = $argv;
     }
 
