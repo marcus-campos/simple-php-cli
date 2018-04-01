@@ -19,10 +19,10 @@ class Command extends BaseCommand implements ConsoleContract
      */
     public function makeCommand()
     {
-        $className = $this->util->args()['arguments'][0];
-        $fileName = ROOT_PATH . '/src/Commands/' . $className . '.php';
+        $className = $this->util->args()->getArguments()[0];
+        $fileName = ROOT_PATH . '/app/Commands/' . $className . '.php';
         $commandsFile = ROOT_PATH . '/App/Config/Command.php';
-        $recipeCommand = ROOT_PATH . '/bin/Recipes/Commands/Command.recipe';
+        $recipeCommand = ROOT_PATH . '/src/Recipes/Commands/Command.recipe';
         $recipe = file_get_contents($recipeCommand);
         $recipe = str_replace('%{ClassName}%', $className, $recipe);
 
